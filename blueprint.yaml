@@ -1,0 +1,38 @@
+
+slug: blueprint-beginner-led-control
+type: Tutorial
+category: "GPIO & Cloud"
+expertiseLevel: "Beginner"
+tags: ["Function", "GPIO", "Publish", "Console"]
+icon: assets/hero.jpg
+gitrepo: https://github.com/<your-org>/blueprint-beginner-led-control
+name: "LED Control via Cloud Function"
+shortDescription: "Control the onboard LED with a cloud function and publish the new LED state."
+version: 1.0.0
+models: []
+language: ["C++"]
+cloudServices: []
+integrations: []
+supportedDevices:
+  - name: Any Wi-Fi or Cellular Device
+    link: https://docs.particle.io
+webIdeLink:
+webSetupLink:
+hardwareDependencies:
+  - name: Supported Particle device
+  - name: USB cable
+introduction: |
+  This beginner blueprint demonstrates how to control an LED from the Particle Console
+  using a cloud function (`setLED`). It's a simple pattern for remote control and state reporting.
+description: |
+  The firmware registers a cloud function `setLED` that accepts "ON", "OFF", or "TOGGLE".
+  After updating the LED pin and internal state, it publishes a private `led_state` event
+  with "ON" or "OFF". This approach provides both control and visibility for dashboards,
+  webhooks, or other devices subscribing to the state.
+additionalResources:
+  - title: Particle Function Reference
+    link: https://docs.particle.io/reference/device-os/firmware/#particle-function-
+  - title: Publish Reference
+    link: https://docs.particle.io/reference/device-os/firmware/#particle-publish-
+  - title: GPIO (digitalWrite) Reference
+    link: https://docs.particle.io/reference/device-os/firmware/#digitalwrite-
