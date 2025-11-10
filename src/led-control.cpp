@@ -27,18 +27,16 @@
 #include "Particle.h"
 
 SYSTEM_MODE(AUTOMATIC);   // Manage cloud connection automatically
-SYSTEM_THREAD(ENABLED);   // Keep OTA responsive and networking concurrent
+#ifndef SYSTEM_VERSION_v620
+SYSTEM_THREAD(ENABLED); // System thread defaults to on in 6.2.0 and later and this line is not required
+#endif
 SerialLogHandler logHandler(LOG_LEVEL_INFO); // View logs with: particle serial monitor --follow
 
 // -------------------------------------------------------------------
 // Hardware configuration
 // -------------------------------------------------------------------
-// Prefer LED_BUILTIN when available; otherwise fall back to D7 (common onboard LED).
-#ifndef LED_BUILTIN
-  #define LED_PIN D7
-#else
-  #define LED_PIN LED_BUILTIN
-#endif
+// Use the onboard LED connected to D7 if available or change it to a different pin
+#define LED_PIN D7
 
 // Track current LED state in firmware (true = ON, false = OFF)
 bool ledOn = false;
@@ -50,7 +48,7 @@ int setLedHandler(String command);
 void publishLedState() {
     const char* state = ledOn ? "ON" : "OFF";
     // PRIVATE so it won't appear on the public firehose
-    Particle.publish("led_state", state, PRIVATE);
+    Particle.publish("led_state", state);
     Log.info("Published led_state: %s", state);
 }
 
