@@ -4,7 +4,7 @@ type: Tutorial
 category: "GPIO & Cloud"
 expertiseLevel: "Beginner"
 tags: ["Function", "GPIO", "Publish", "Console"]
-icon: assets/hero.jpg
+icon: assets/led.svg
 gitrepo: https://github.com/<your-org>/blueprint-beginner-led-control
 name: "LED Control via Cloud Function"
 shortDescription: "Control the onboard LED with a cloud function and publish the new LED state."
