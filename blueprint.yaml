@@ -1,7 +1,7 @@
 
 slug: blueprint-beginner-led-control
 type: Tutorial
-category: "GPIO & Cloud"
+category: "GPIO & cloud"
 expertiseLevel: "Beginner"
 tags: ["Function", "GPIO", "Publish", "Console"]
 icon: assets/led.svg
